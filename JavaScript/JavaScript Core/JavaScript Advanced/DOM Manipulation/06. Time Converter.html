@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Time Converter</title>
+    <script src="timeConverter.js"></script>
+    <style>
+        label, input {
+            display: inline-block;
+            width: 5em;
+        }
+        label {
+            text-align: right;
+        }
+    </style>
+</head>
+<body onload="attachEventsListeners()">
+<h1>Time Converter</h1>
+<div>
+    <label for="days">Days: </label>
+    <input type="text" id="days">
+    <input id="daysBtn" type="button" value="Convert">
+</div>
+<div>
+    <label for="hours">Hours: </label>
+    <input type="text" id="hours">
+    <input id="hoursBtn" type="button" value="Convert">
+</div>
+<div>
+    <label for="minutes">Minutes: </label>
+    <input type="text" id="minutes">
+    <input id="minutesBtn" type="button" value="Convert">
+</div>
+<div>
+    <label for="seconds">Seconds: </label>
+    <input type="text" id="seconds">
+    <input id="secondsBtn" type="button" value="Convert">
+</div>
+<script>
+    function attachEventsListeners() {
+        let dayButton = document.getElementById('daysBtn')
+        let dayHour = document.getElementById('hoursBtn')
+        let dayMin = document.getElementById('minutesBtn')
+        let daySec = document.getElementById('secondsBtn')
+        dayButton.addEventListener('click',days)
+        dayHour.addEventListener('click',hours)
+        dayMin.addEventListener('click',minutes)
+        daySec.addEventListener('click',seconds)
+        function days() {
+            let day = +document.getElementById('days').value
+            let hours = day*24
+            let mins = day*24*60
+            let secs = day*24*60*60
+            document.getElementById('hours').value = hours
+            document.getElementById('minutes').value = mins
+            document.getElementById('seconds').value = secs
+        }
+        function hours() {
+            let hours = +document.getElementById('hours').value
+            let days = hours/24
+            let mins = hours*60
+            let secs = hours*60*60
+            document.getElementById('days').value = days
+            document.getElementById('minutes').value = mins
+            document.getElementById('seconds').value = secs
+        }
+        function minutes() {
+            let mins = +document.getElementById('minutes').value
+            let hours = mins/60
+            let days = hours / 24
+            let secs = mins*60
+            document.getElementById('hours').value = hours
+            document.getElementById('days').value = days
+            document.getElementById('seconds').value = secs
+        }
+        function seconds() {
+            let sec = +document.getElementById('seconds').value
+            let mins = sec/60
+            let hours = mins/60
+            let days = hours/24
+            document.getElementById('hours').value = hours
+            document.getElementById('days').value = days
+            document.getElementById('minutes').value = mins
+        }
+    }
+
+</script>
+</body>
+</html>
