@@ -1,0 +1,16 @@
+CREATE TABLE `minions` (
+	`id` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+	`name` VARCHAR(50) NULL DEFAULT '0',
+	`age` TINYINT UNSIGNED NOT NULL DEFAULT '0',
+	`town_id` INT(11) UNSIGNED NOT NULL DEFAULT '0',
+	PRIMARY KEY (`id`)
+)
+COLLATE='utf8_general_ci'
+;
+CREATE TABLE `towns` (
+	`id` INT(11) UNSIGNED NOT NULL,
+	`name` VARCHAR(50) NOT NULL,
+	PRIMARY KEY (`id`)
+)
+COLLATE='utf8_general_ci'
+;
