@@ -1,0 +1,8 @@
+SELECT employees.employee_id, employees.first_name
+FROM employees
+WHERE NOT EXISTS 
+	(SELECT *
+	FROM employees_projects
+	WHERE employees.employee_id = employees_projects.employee_id)
+ORDER BY employees.employee_id desc
+limit 3 
